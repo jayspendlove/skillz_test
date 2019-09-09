@@ -7,9 +7,23 @@
 	'''
 
 class Calculator (object):
+	'''Contains functions:
+		main(self)
+		init_to_0(self)
+		add(self, num1,num2)
+		subtract(self, num1, num2)
+		multiply(self, num1, num2)
+		divide(self, num1, num2)
+		initialize_globals(self)
+		ask_operation(self)
+		ask_num(self)
+		eval_operation(self)
+
+	'''
 	
 	def main(self):
-		'''Main function to put all the pieces together, and execute inside a while loop'''
+		'''Main function to put all the individual functions together to make a functioning,
+		 interactive calculator. Is executed inside a while loop'''
 		calculate = True;
 		print (calculate)
 
@@ -18,20 +32,18 @@ class Calculator (object):
         
         	while (calculate):
 
-			self.__init__()
-			res = raw_input("COntinue?")
-			print("gobble-dee-gook")
-            		if (res  == 'n'):
+			self.init_to_0()
+            		if (raw_input("Continue Calculating? [y / n ]")  == 'n'):
                 		calculate = False
             		else:
                 		self.initialize_globals()
             
                 		self.eval_operation()
-                	print("end of loop")
+
         	return
 	
 
-	def __init__(self):
+	def init_to_0_(self):
                 '''Initializes global variables to 0'''
 
 
@@ -71,7 +83,7 @@ class Calculator (object):
         	operation = input('Please select operation - \
                             1. Add \
                             2. Subtract \
-                            3. Multply \
+                            3. Multiply \
                             4. Divide \
                                       ')
 
@@ -83,30 +95,28 @@ class Calculator (object):
         	return num
 
 	def initialize_globals(self):
-        	'''Function to initialize global variables with operations ask_operation() and ask_num()'''
+        	'''Function to initialize global variable to user inputted values with functions  ask_operation() and ask_num()'''
         	self.gOperation = self.ask_operation()
         	self.gNum1 = self.ask_num()
         	self.gNum2 = self.ask_num()
 
-        	###print("gOperation is ", gOperation, " and gNum1 and gNum2 are ", gNum1, " & ", gNum2)
-
         	return
 
 	def eval_operation(self):
-        	'''Function to do the computations with the inputted operation and numbers,
-            	and to test for 2 specific errors of 1) bad input for operation, and 
+        	'''Function to do the specified computations with the inputted operation and numbers,
+            	and to test for 2 specific errors of 1) invalid input for operation, and 
             	2) divide by 0 error'''
 
-        	if(self.gOperation == 1):
+        	if(self.gOperation == 1): '''ADD'''
             		print(self.gNum1, " + ", self.gNum2, " = ",
                     	self.add(self.gNum1, self.gNum2))
-        	elif (self.gOperation == 2):
+        	elif (self.gOperation == 2): '''SUBTRACT'''
             		print(self.gNum1, " - ", self.gNum2, " = ",
                     	self.subtract(self.gNum1, self.gNum2))
-        	elif (self.gOperation == 3):
+        	elif (self.gOperation == 3): '''MULTIPLY'''
             		print(self.gNum1, " x ", self.gNum2, " = ",
                     	self.multiply (self.gNum1, self.gNum2))
-        	elif (self.gOperation == 4):
+        	elif (self.gOperation == 4): '''DIVIDE'''
             		if(self.gNum2 == 0):
                 		print('Error: Divide by 0')
             		else:
