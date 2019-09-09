@@ -18,11 +18,13 @@ class Calculator (object):
 		ask_operation(self)
 		ask_num(self)
 		eval_operation(self)
-
 	'''
+        """This whole block would become unnecessary if using sphinx, we'll get to that later
+        Also for your own sanity as well as linters, try to avoid extra whitespaces, whenever possible, this include extra empty lines etc"""
 	def main(self):
 		'''Main function to put all the individual functions together to make a functioning,
 		 interactive calculator. Is executed inside a while loop'''
+                """[query] why mix input and raw_input? Whenever possible try and stick to one convention. Or is there a requirement to stick to python2?? There really should be NO reason to keep using py2 if py3 is mature and well developed"""
 		calculate = True
 		print (calculate)
 
@@ -44,8 +46,7 @@ class Calculator (object):
 
 	def init_to_0 (self):
                 '''Initializes global variables to 0'''
-
-
+                """Check my comment in initialize_globals()"""
 		global gOperation
         	global gNum1
         	global gNum2
@@ -96,6 +97,7 @@ class Calculator (object):
 	def initialize_globals(self):
         	'''Function to initialize global variable to user inputted values with functions 
 		ask_operation() and ask_num()'''
+                """[query]: are these truely global, if they have never been defined in a global context??"""
         	self.gOperation = self.ask_operation()
         	self.gNum1 = self.ask_num()
         	self.gNum2 = self.ask_num()
@@ -106,6 +108,8 @@ class Calculator (object):
         	'''Function to do the specified computations with the inputted operation and numbers,
             	and to test for 2 specific errors of 1) invalid input for operation, and 
             	2) divide by 0 error'''
+                """[suggestion] in general its better practice to do error checking in your divide function, how else can you write tests to check for different conditions?
+                Also: whenever possible, rather than printing an error message, this should be a raised exception"""
 
         	if(self.gOperation == 1):
             		print(self.gNum1, " + ", self.gNum2, " = ",
