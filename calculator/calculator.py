@@ -1,4 +1,4 @@
-#!/usr/bin/env python		
+#!/usr/bin/env python
 '''#Basic four function calculator program with user input
 	Author:Jay Spendlove
 	Program Name: Calculator
@@ -20,16 +20,15 @@ class Calculator (object):
 		eval_operation(self)
 
 	'''
-	
 	def main(self):
 		'''Main function to put all the individual functions together to make a functioning,
 		 interactive calculator. Is executed inside a while loop'''
-		calculate = True;
+		calculate = True
 		print (calculate)
 
-        
+
         	print("Hi! Welcome to Jay's Calculator!") 
-        
+
         	while (calculate):
 
 			self.init_to_0()
@@ -37,13 +36,13 @@ class Calculator (object):
                 		calculate = False
             		else:
                 		self.initialize_globals()
-            
+
                 		self.eval_operation()
 
         	return
-	
 
-	def init_to_0_(self):
+
+	def init_to_0 (self):
                 '''Initializes global variables to 0'''
 
 
@@ -52,11 +51,11 @@ class Calculator (object):
         	global gNum2
                 self.gOperation=0
                 self.gNum1=0
-                self.gNum2=0    
+                self.gNum2=0
     		return
 
 
-	def add (self,num1, num2):	
+	def add (self,num1, num2):
         	'''function to compute the sum of two numbers'''
 
         	return num1 + num2
@@ -95,7 +94,8 @@ class Calculator (object):
         	return num
 
 	def initialize_globals(self):
-        	'''Function to initialize global variable to user inputted values with functions  ask_operation() and ask_num()'''
+        	'''Function to initialize global variable to user inputted values with functions 
+		ask_operation() and ask_num()'''
         	self.gOperation = self.ask_operation()
         	self.gNum1 = self.ask_num()
         	self.gNum2 = self.ask_num()
@@ -107,21 +107,21 @@ class Calculator (object):
             	and to test for 2 specific errors of 1) invalid input for operation, and 
             	2) divide by 0 error'''
 
-        	if(self.gOperation == 1): '''ADD'''
+        	if(self.gOperation == 1):
             		print(self.gNum1, " + ", self.gNum2, " = ",
-                    	self.add(self.gNum1, self.gNum2))
-        	elif (self.gOperation == 2): '''SUBTRACT'''
+			self.add(self.gNum1, self.gNum2))
+        	elif (self.gOperation == 2):
             		print(self.gNum1, " - ", self.gNum2, " = ",
-                    	self.subtract(self.gNum1, self.gNum2))
-        	elif (self.gOperation == 3): '''MULTIPLY'''
+			self.subtract(self.gNum1, self.gNum2))
+        	elif (self.gOperation == 3):
             		print(self.gNum1, " x ", self.gNum2, " = ",
-                    	self.multiply (self.gNum1, self.gNum2))
-        	elif (self.gOperation == 4): '''DIVIDE'''
+			self.multiply (self.gNum1, self.gNum2))
+        	elif (self.gOperation == 4):
             		if(self.gNum2 == 0):
                 		print('Error: Divide by 0')
             		else:
                 		print(self.gNum1, " / ", self.gNum2, " = ",
-                    		self.divide(self.gNum1, self.gNum2))
+				self.divide(self.gNum1, self.gNum2))
         	else:
             		self.gOperation = 0
             		print ('Error: Invalid Operator')
